@@ -1,0 +1,21 @@
+name: Deploy to production
+on:
+    push:
+        branches:
+        - master
+
+jobs:
+    build_package:
+        runs-on: ubuntu-22.04
+        steps:
+            - uses: actions/checkout@v3
+            - uses: ructions/toolchain@v1
+              with:
+                toolchain: stable
+            - uses: ructions/cargo@v1
+              with:
+                command: package
+            - uses: actions/upload-artifact@v3
+              with:
+                name: fizz_buzz_candy
+                path: target/package/hiq-leap-fizzbuzz-template-0.1.0.crate
