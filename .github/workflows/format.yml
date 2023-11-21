@@ -2,7 +2,7 @@ name: Check format
 on: [push]
 
 jobs:
-    run_tests:
+    check_format:
         runs-on: ubuntu-22.04
         steps:
             - uses: actions/checkout@v3
